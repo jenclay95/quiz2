@@ -1,3 +1,44 @@
-consle.log('welocme to quiz town, population...YOU!')
+var $ = function(id) {
+  return document.getElementById(id);
+}
+console.log('hi there');
+var joinList = function () {
+  var emailAddress1 = $("email_address1").value;
+  var emailAddress2 = $("email_address2").value;
+  var isValid = true;
 
-@('.dynamic').hmtl('<div p>HI THERE, I\'M FROM JAVASCRIPT</p></div>').fadeIn('slo')
+  if (emailAddress1 == "") {
+    $("email_address1_error").firstChild.nodeValue =
+      "This field is required.";
+    isValid = false;
+  }
+  else {
+    $("email_address1_error").firstChild.nodeValue = "";
+  }
+
+  if (emailAddress1 !== emailAddress2) {
+    $("email_address2_error").firstChild.nodeValue =
+      "This entry must equal first entry.";
+    isValid = false;
+  }
+  else {
+    $("email_address2_error").firstChild.nodeValue = "";
+  }
+
+  if ($("first_name").value == "") {
+    $("first_name_error").firstChild.nodeValue =
+      "This field is required." ;
+    isValid = false;
+  }
+  else {
+    $("first_name_error").firstChild.nodeValue = "";
+  }
+
+  if (isValid) {
+    $("join_list").submit();
+  }
+}
+
+
+$('#myform').get(0).reset();
+$('form[name=myform]').get(0).reset();
